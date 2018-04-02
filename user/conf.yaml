@@ -27,8 +27,9 @@ struct:
           target: subject
           other_key: subject
     subject:
-      sql: select m.section,m.`set`,m.item,mnemonic,year,description,size,copy,adate,aref from [subjects] as s INNER JOIN [master] as m using (section,`set`,item)
+      sql: select m.section,m.`set`,m.item,mnemonic,concat(section,'/',`set`,'/',item,'/',mnemonic) as code,year,description,size,copy,adate,aref from [subjects] as s INNER JOIN [master] as m using (section,`set`,item)
       keys: subject
       key_required: true
       order_by: year asc
       view: true
+      hidden_fields: section set item mnemonic

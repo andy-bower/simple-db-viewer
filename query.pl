@@ -2,10 +2,10 @@
 
 use strict;
 use warnings;
+use lib("perl5/lib");
 use YAML;
 use DBI;
 use CGI;
-use lib("perl5/lib");
 use XML::LibXML;
 
 my $conf = YAML::LoadFile("user/conf.yaml");
@@ -75,6 +75,7 @@ if (defined($view) && $view->{'view'}) {
 }
 
 my $fieldnames = $sth->{'NAME'};
+my @hiddenfields = split '\s',($view->{'hidden_fields'} // '');
 my @fields;
 for my $field (@$fieldnames) {
     my %def = ( 'name' => $field );
@@ -82,6 +83,7 @@ for my $field (@$fieldnames) {
     if (defined $link) {
 	$def{'link'} = $link;
     }
+    $def{'hidden'} = $field ~~ @hiddenfields;
     push @fields, \%def;
 }
 
@@ -119,24 +121,29 @@ sub format_xml {
     my $heading = $doc->createElement('heading');
     $table->appendChild($heading);
     for my $field (@$fields) {
-	$heading->appendTextChild("field", $field->{'name'});
+	if (!$field->{'hidden'}) {
+	    $heading->appendTextChild("field", $field->{'name'});
+	}
     }
     
     for my $record (@$data) {
 	my $row = $doc->createElement('record');
 	$table->appendChild($row);
 	for my $i (0 .. (scalar @$fields)-1) {
-	    my $cell = $doc->createElement('value');
-	    my $text = $doc->createTextNode($$record[$i] // '');
-	    $cell->appendChild($text);
-	    my $link = $fields[$i]->{'link'};
-	    if (defined($link)) {
-		$cell->setAttribute('href', CGI::url(-relative=>1).
-				    "?table=".CGI::escapeHTML($link->{'target'}).
-				    ";".CGI::escapeHTML($link->{'other_key'}).
-				    "=".CGI::escapeHTML($$record[$i]));
+	    my $field = $fields[$i];
+	    if (!$field->{'hidden'}) {
+		my $cell = $doc->createElement('value');
+		my $text = $doc->createTextNode($$record[$i] // '');
+		$cell->appendChild($text);
+		my $link = $fields[$i]->{'link'};
+		if (defined($link)) {
+		    $cell->setAttribute('href', CGI::url(-relative=>1).
+					"?table=".CGI::escapeHTML($link->{'target'}).
+					";".CGI::escapeHTML($link->{'other_key'}).
+					"=".CGI::escapeHTML($$record[$i]));
+		}
+		$row->appendChild($cell);
 	    }
-	    $row->appendChild($cell);
 	}
     }
     
