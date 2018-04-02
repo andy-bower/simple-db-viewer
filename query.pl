@@ -5,7 +5,7 @@ use warnings;
 use YAML;
 use DBI;
 use CGI;
-use lib("../../../perl5/lib/perl5/i586-linux-gnu-thread-multi-64int");
+use lib("perl5/lib");
 use XML::LibXML;
 
 my $conf = YAML::LoadFile("user/conf.yaml");
