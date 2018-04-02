@@ -1,0 +1,34 @@
+db:
+  host:
+  user:
+  password:
+  database:
+  prefix: archive1_
+
+ui:
+  page_size: 10000
+
+format_xml:
+  stylesheet: user/format.xslt
+
+struct:
+  default_table: subjects
+  tables:
+    subjects:
+      view: true
+
+  views:
+    subjects:
+      sql: select subject,min(year) as earliest,max(year) as latest,count(*) as records from [master] as m left join [subjects] as s using (section,`set`,item) group by subject
+      view: true
+      order_by: subject asc
+      links:
+        subject:
+          target: subject
+          other_key: subject
+    subject:
+      sql: select m.section,m.`set`,m.item,mnemonic,year,description,size,copy,adate,aref from [subjects] as s INNER JOIN [master] as m using (section,`set`,item)
+      keys: subject
+      key_required: true
+      order_by: year asc
+      view: true

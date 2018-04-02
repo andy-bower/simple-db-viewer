@@ -1,0 +1,277 @@
+body {
+  background: rgb(100%, 100%, 100%);
+  font-family: arial, helvetica, sans-serif;
+  padding: 0.1em
+}
+
+table {
+  border-collapse: collapse;
+  border: none
+}
+
+table.layout {
+  border: none;
+  width: 100%
+}
+
+table.layout td {
+  padding: 0.4em
+}
+
+.banner {
+  color: blue;
+  font-size: smaller;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.75em;
+  margin-bottom: 0em
+}
+
+.logo {
+  background-color: rgb(80%, 100%, 80%);
+  color: rgb(0%, 50%, 0%);
+  vertical-align: top
+}
+.logo p {
+  margin-top: 0.2em;
+  margin-bottom: 1em
+}
+.logo .image { margin-top: 0em; margin-bottom: 0em }
+.soctitle { font-style: oblique; font-size: large; color: rgb(0%, 50%, 0%) }
+.logo .location { font-size: small }
+.logo .membership { font-size: x-small; font-weight: bold }
+.logo .charter { font-style: oblique; font-size: small }
+
+td.logo {
+  width: 7em
+}
+
+td.logo p, td.logo img {
+  padding-left: 12px;
+  padding-right: 12px
+}
+
+td.controls {
+  width: 7em;
+  vertical-align: top;
+  border-left: 1px solid rgb(0%, 50%, 0%)
+}
+
+.controls a {
+  color: rgb(50%, 50%, 50%)
+}
+
+.controls img {
+  border: none
+}
+
+.quote {
+  text-align: center;
+  font-style: italic
+}
+
+div.copyright {
+  font-size: x-small;
+  margin-top: 1em
+}
+
+h1 {
+  background: url(../img/banner-june07.jpg) center no-repeat;
+  font-weight: normal;
+  text-align: center;
+  line-height: 64px;
+  margin: 0.4em 0em 0em 0em
+}
+
+h2 {
+  font-weight: bold;
+  font-size: large
+}
+
+h3 {
+  font-weight: bold;
+  font-size: medium
+}
+
+table.menu {
+  border: none;
+}
+
+table.menu td a {
+  font-size: small
+}
+
+table.menu td .chevron {
+  font-size: medium;
+  color: rgb(50%, 50%, 50%)
+}
+
+table.menu td {
+  background-color: rgb(100%, 100%, 75%);
+  color: rgb(0%, 50%, 0%);
+  font-size: x-small;
+  margin-right: 0em;
+  border-right: 0.4em solid white;
+  vertical-align: top;
+  width: 20%
+}
+
+.house {
+  font-size: small
+}
+
+.house p {
+  padding-bottom: 0.8em
+}
+
+.house span.feature { font-weight: bold; color: black }
+
+.guidance {
+  color: rgb(60%, 0%, 0%);
+  font-style: oblique
+}
+
+.attn {
+  color: rgb(60%, 0%, 0%)
+}
+
+:link {
+  color: rgb(0%, 0%, 60%)
+}
+
+:visited {
+  color: rgb(20%, 60%, 40%)
+}
+
+.linklist {
+  font-size: small
+}
+
+table.data {
+  border: none;
+}
+
+td,th {
+  padding-right: 0.4em;
+}
+
+table.data td,th {
+  background-color: rgb(100%, 100%, 75%);
+  border-bottom: 0.2em solid white;
+  text-align: left;
+  vertical-align: top;
+}
+
+table.events td {
+  border: 1px solid black;
+  vertical-align: top
+}
+
+td.event-date {
+  width: 14em;
+  text-align: center
+}
+
+table.events .notice {
+  font-weight: bold;
+  font-size: larger
+}
+
+table.events .keyname {
+  font-style: oblique
+}
+
+table.events .location {
+  font-style: oblique
+}
+
+.form-title {
+  font-weight: bold
+}
+
+.form-options {
+  margin-left: 2em
+}
+
+.form-missing {
+  background-color: rgb(80%, 100%, 80%);
+}
+
+.form-area {
+  background-color: rgb(80%, 100%, 80%);
+  padding-top: 0.4em;
+  margin-bottom: 1em;
+  padding-bottom: 0.4em;
+}
+
+.input {
+  font-family: monospace
+}
+
+tr.index-group {
+  font-weight: bold
+}
+
+table.plan-app p {
+  margin-top: 0em
+}
+
+table.plan-app p.final-para {
+  margin-bottom: 0em
+}
+
+.front-abstract {
+  margin-left: 2em;
+  margin-right: 2em
+}
+
+.front-abstract .story-info {
+  margin-left: 1ex;
+}
+
+.abstract .story-info,.front-abstract .story-info,.article .story-info {
+  font-size: smaller;
+  color: rgb(0%, 50%, 0%);
+  font-style: italic
+}
+
+.front-abstract .image-left {
+  float: left;
+  margin-right: 0.6em;
+  margin-bottom: 0.4em;
+  border: 2px solid black
+}
+
+.front-abstract p {
+  clear: both;
+  margin-top: 0.6em;
+  margin-bottom: 0em;
+  text-align: justify
+}
+
+.front-abstract p.no-image {
+}
+
+.article .image {
+  float: left;
+  height: 256px;
+  margin-right: 1em
+}
+
+.front-abstract p.image-right {
+}
+
+.front-abstract img.image-right {
+  float: right;
+  margin-left: 0.6em;
+  margin-bottom: 0.4em;
+  border: 2px solid black
+}
+
+.article .abstract {
+  font-style: oblique
+}
+
+.attachments {
+  font-size: smaller
+}
